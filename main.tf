@@ -47,6 +47,12 @@ resource "aws_lambda_function" "this" {
     }
   }
 
+  lifecycle {
+    ignore_changes = [
+      environment.0.variables
+    ]
+  }
+
   dynamic "environment" {
     for_each = length(keys(var.environment_variables)) == 0 ? [] : [true]
     content {
