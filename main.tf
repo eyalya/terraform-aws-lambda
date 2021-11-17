@@ -49,7 +49,7 @@ resource "aws_lambda_function" "this" {
 
   lifecycle {
     ignore_changes = [
-      environment.0.variables
+      environment.0.variables, filename
     ]
   }
 
